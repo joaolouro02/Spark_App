@@ -15,8 +15,19 @@ Para executar este projeto, você precisará das seguintes ferramentas instalada
 
 ### Passo 1: Clonar o Repositório
 
-Clone o repositório para o seu ambiente local:
+```sh
+git clone https://github.com/joaolouro02/Spark_App.git
+cd joaolouro02
+```
+
+### Passo 2: Torne o script `run.sh` executável:
 
 ```sh
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+    chmod +x run.sh
+```
+
+### Passo 3: Execute o script para compilar e rodar a aplicação:
+
+```sh
+    ./run.sh
+```
