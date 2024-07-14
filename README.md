@@ -4,7 +4,7 @@ Este projeto é uma aplicação Spark desenvolvida em Scala que processa dados d
 
 ## Requisitos
 
-Para executar este projeto, você precisará das seguintes ferramentas instaladas:
+Para executar este projeto, precisará das seguintes ferramentas instaladas:
 
 - Java 8
 - Scala 2.12.18
@@ -17,17 +17,17 @@ Para executar este projeto, você precisará das seguintes ferramentas instalada
 
 ```sh
 git clone https://github.com/joaolouro02/Spark_App.git
-cd joaolouro02
+cd .\Spark_App\
 ```
 
-### Passo 2: Torne o script `run.sh` executável:
+### Passo 2: Compilar o código-fonte
 
 ```sh
-    chmod +x run.sh
+mvn clean package
 ```
 
-### Passo 3: Execute o script para compilar e rodar a aplicação:
+### Passo 3: Executar a aplicação:
 
 ```sh
-    ./run.sh
+java -jar target/spark-setup-1.0-SNAPSHOT.jar
 ```
