@@ -1,3 +1,22 @@
 # Spark_App
 
-Para a resolução da 1ª parte do desafio começou-se por utilizar o jupyter notebook para pré-processar os dados do dataset googleplaystore_user_reviews.csv, visto que havia inúmeras apps com valores nulos nas colunas Translated_Review, Sentiment, Sentiment_Polarity e Sentiment_Subjectivity. Uma vez que era para calcular a média do Sentiment_Polarity para cada app não faria sentido colocar 0's em avaliações que não estão completas o que iria prejudicar a avaliação das apps, por esse motivo essas linhas foram removidas e não foram tidas em consideração.
+Este projeto é uma aplicação Spark desenvolvida em Scala que processa dados de aplicações e a análise de utilizadores da Play Store.
+
+## Requisitos
+
+Para executar este projeto, você precisará das seguintes ferramentas instaladas:
+
+- Java 8
+- Scala 2.12.18
+- Apache Spark 3.5.1
+- Maven 3.9.8
+
+## Configuração
+
+### Passo 1: Clonar o Repositório
+
+Clone o repositório para o seu ambiente local:
+
+```sh
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
