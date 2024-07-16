@@ -4,7 +4,7 @@ Este projeto é uma aplicação Spark desenvolvida em Scala que processa dados d
 
 ## Requisitos
 
-Para executar este projeto, precisará das seguintes ferramentas instaladas:
+Este projeto foi executado com as seguintes ferramentas:
 
 - Java 8
 - Scala 2.12.18
