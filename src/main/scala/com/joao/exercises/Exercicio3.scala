@@ -1,7 +1,6 @@
 package com.joao.exercises
 
 import com.joao.utils.SparkUtils
-import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 
@@ -28,7 +27,7 @@ object Exercicio3 {
         .withColumnRenamed("Current Ver", "Current_Version")
         .withColumnRenamed("Android Ver", "Minimum_Android_Version")
 
-      // Agrupamento por App para tratar duplicatas
+      // Agrupamento por App para tratar duplicadas
       val dfGrouped = dfCleaned
         .groupBy($"App")
         .agg(

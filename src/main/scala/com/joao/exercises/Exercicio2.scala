@@ -9,16 +9,17 @@ object Exercicio2 {
 
       import spark.implicits._
 
-      // Carregue o dataset
+      // Carregua o dataset
       val df = SparkUtils.loadAppsData(spark)
 
 
-      // Remova linhas com Rating como NaN, filtre as Apps com "Rating" >= 4.0 e ordene em ordem decrescente
+      // Remova linhas com Rating NaN; filtra as Apps com "Rating" >= 4.0 e ordena em ordem decrescente
       val highlyRatedAppsDF = df
         .filter(!$"Rating".isNaN && !$"Rating".isNull)
         .filter($"Rating" >= 4.0)
         .orderBy($"Rating".desc)
 
+    //Salva o dataframe com um nome específico
     SparkUtils.writeCSVWithSpecificFileName(
       spark,
       highlyRatedAppsDF,

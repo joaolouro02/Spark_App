@@ -7,7 +7,9 @@ import java.io.{BufferedReader, InputStreamReader}
 import java.nio.charset.StandardCharsets
 import org.apache.commons.io.IOUtils
 
+//Contém funções auxiliares
 object SparkUtils {
+
   def initSpark(): SparkSession = {
     SparkSession.builder()
       .appName("Google Play Store Analysis")
@@ -32,37 +34,6 @@ object SparkUtils {
       .csv("src/main/scala/com/joao/data/googleplaystore.csv")
   }
 
-
-  def writeJSONWithSpecificFileName(spark: SparkSession, df: DataFrame, path: String, filename: String): Unit = {
-    val tempPath = s"$path/temp"
-
-    // Salva o DataFrame como um único arquivo JSON
-    df.coalesce(1).write.json(tempPath)
-
-    // Obtém o sistema de arquivos HDFS
-    val hadoopConf = spark.sparkContext.hadoopConfiguration
-    val fs = FileSystem.get(hadoopConf)
-
-    // Encontra o arquivo part-* gerado
-    val tempDir = new Path(tempPath)
-    val partFile = fs.listStatus(tempDir)
-      .map(_.getPath)
-      .find(_.getName.startsWith("part-"))
-      .getOrElse(throw new Exception("Arquivo part-* não encontrado"))
-
-    // Renomeia o arquivo para o nome desejado
-    val srcPath = partFile
-    val destPath = new Path(s"$path/$filename")
-
-    if (fs.exists(srcPath) && fs.isFile(srcPath)) {
-      fs.rename(srcPath, destPath)
-
-      // Remove o diretório temporário
-      fs.delete(tempDir, true)
-    } else {
-      throw new Exception(s"Erro ao renomear o arquivo para $filename")
-    }
-  }
 
   def writeCSVWithSpecificFileName(spark: SparkSession, df: DataFrame, path: String, filename: String,delimiter: String = ","): Unit = {
     val tempPath = s"$path/temp"
@@ -106,6 +77,38 @@ object SparkUtils {
 
     // Remove o diretório temporário
     fs.delete(tempDir, true)
+  }
+
+
+  def writeJSONWithSpecificFileName(spark: SparkSession, df: DataFrame, path: String, filename: String): Unit = {
+    val tempPath = s"$path/temp"
+
+    // Salva o DataFrame como um único arquivo JSON
+    df.coalesce(1).write.json(tempPath)
+
+    // Obtém o sistema de arquivos HDFS
+    val hadoopConf = spark.sparkContext.hadoopConfiguration
+    val fs = FileSystem.get(hadoopConf)
+
+    // Encontra o arquivo part-* gerado
+    val tempDir = new Path(tempPath)
+    val partFile = fs.listStatus(tempDir)
+      .map(_.getPath)
+      .find(_.getName.startsWith("part-"))
+      .getOrElse(throw new Exception("Arquivo part-* não encontrado"))
+
+    // Renomeia o arquivo para o nome desejado
+    val srcPath = partFile
+    val destPath = new Path(s"$path/$filename")
+
+    if (fs.exists(srcPath) && fs.isFile(srcPath)) {
+      fs.rename(srcPath, destPath)
+
+      // Remove o diretório temporário
+      fs.delete(tempDir, true)
+    } else {
+      throw new Exception(s"Erro ao renomear o arquivo para $filename")
+    }
   }
 
 

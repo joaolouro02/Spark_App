@@ -25,7 +25,7 @@ object Exercicio5 {
       .withColumn("Genre", explode($"Genres"))
       .drop("Genres")
 
-    // Juntar os datasets com base no nome do aplicativo
+    // Juntar os datasets com base no nome da app
     val dfJoined = dfExploded
       .join(df1, dfExploded("App") === df1("App"), "left")
       .select(
