@@ -35,3 +35,7 @@ java -jar target/spark-setup-1.0-SNAPSHOT.jar
 ## Execução no IDE
 
 https://www.dropbox.com/scl/fi/3u7yufwjn44w1mlb2a3q7/img1.png?rlkey=o7z5a0pz6z4tf9os6pd8gulyr&st=7rgzwjzb&dl=0
+![img1](https://github.com/user-attachments/assets/b12da6ad-c4b1-40f7-9134-488bdbd9fc2b)
+![img2](https://github.com/user-attachments/assets/3411bf97-c590-4951-bc41-b36e6e45683d)
+
+
