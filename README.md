@@ -31,3 +31,7 @@ mvn clean package
 ```sh
 java -jar target/spark-setup-1.0-SNAPSHOT.jar
 ```
+
+## Execução no IDE
+
+https://www.dropbox.com/scl/fi/3u7yufwjn44w1mlb2a3q7/img1.png?rlkey=o7z5a0pz6z4tf9os6pd8gulyr&st=7rgzwjzb&dl=0
