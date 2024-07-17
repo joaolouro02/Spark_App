@@ -35,7 +35,7 @@ java -jar target/spark-setup-1.0-SNAPSHOT.jar
 ## Execução no IDE
 
 ### Passo 1: Editar a configurção
-<img src="https://github.com/user-attachments/assets/b12da6ad-c4b1-40f7-9134-488bdbd9fc2b" alt="img2" width="500" height="300"/>
+<img src="https://github.com/user-attachments/assets/c339105e-0942-49ab-820f-30118f0a0e59" alt="img2" width="500" height="300"/>
 
 ### Passo 2: Adicionar VM Options
 <img src="https://github.com/user-attachments/assets/3411bf97-c590-4951-bc41-b36e6e45683d" alt="img2" width="500" height="300"/>
