@@ -3,7 +3,7 @@ package com.joao
 import com.joao.exercises._
 import com.joao.utils.SparkUtils
 
-//Inicia Spark e executa todos os exercícios
+// Inicia Spark e executa todos os exercícios
 object Main {
   def main(args: Array[String]): Unit = {
     val spark = SparkUtils.initSpark()
@@ -20,19 +20,22 @@ object Main {
                       exercicio3: Exercicio3.type = Exercicio3,
                       exercicio4: Exercicio4.type = Exercicio4,
                       exercicio5: Exercicio5.type = Exercicio5): Unit = {
-    println("Executando Exercício 1")
-    exercicio1.run()
+    executeExercise("Exercício 1", exercicio1.run())
+    executeExercise("Exercício 2", exercicio2.run())
+    executeExercise("Exercício 3", exercicio3.run())
+    executeExercise("Exercício 4", exercicio4.run())
+    executeExercise("Exercício 5", exercicio5.run())
+  }
 
-    println("\nExecutando Exercício 2")
-    exercicio2.run()
-
-    println("\nExecutando Exercício 3")
-    exercicio3.run()
-
-    println("\nExecutando Exercício 4")
-    exercicio4.run()
-
-    println("\nExecutando Exercício 5")
-    exercicio5.run()
+  def executeExercise(name: String, exercise: => Unit): Unit = {
+    println(s"Executando $name")
+    try {
+      exercise
+    } catch {
+      case e: Exception =>
+        println(s"Erro ao executar $name: ${e.getMessage}")
+        e.printStackTrace()
+    }
   }
 }
+

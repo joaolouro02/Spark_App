@@ -27,7 +27,7 @@ object Exercicio3 {
         .withColumnRenamed("Current Ver", "Current_Version")
         .withColumnRenamed("Android Ver", "Minimum_Android_Version")
 
-      // Agrupamento por App para tratar duplicadas
+      // Agrupamento por App
       val dfGrouped = dfCleaned
         .groupBy($"App")
         .agg(
